@@ -51,7 +51,7 @@ define as inputs for a page object class, including:
 -   :class:`~web_poet.page_inputs.client.HttpClient`, to send  :ref:`additional
     requests <additional-requests>`.
 
--   :class:`~web_poet.page_inputs.http.RequestUrl`, the target URL before
+-   :class:`~web_poet.page_inputs.url.RequestUrl`, the target URL before
     following redirects. Useful, for example, to skip the target URL download,
     and instead use :class:`~web_poet.page_inputs.client.HttpClient` to send a
     custom request based on parts of the target URL.
