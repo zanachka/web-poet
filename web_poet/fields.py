@@ -83,6 +83,14 @@ class _FieldDescriptor(Generic[_PageT, _ReturnT]):
         self.name: str | None = None
         update_wrapper(cast("Callable", self), method)
 
+    @property
+    def __closure__(self):
+        # attrs and dataclasses rebuild slotted classes from scratch, and fix
+        # the __class__ cell that zero-arg super() needs by looking for a
+        # __closure__ attribute on every class attribute. Exposing the one of
+        # the wrapped method lets them fix it, since the cell object is shared.
+        return self.original_method.__closure__
+
     def __set_name__(self, owner, name: str) -> None:
         self.name = name
         if not hasattr(owner, _FIELDS_INFO_ATTRIBUTE_WRITE):

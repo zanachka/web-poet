@@ -398,6 +398,22 @@ def test_field_subclassing_super() -> None:
     assert page2.field1 == 2
 
 
+def test_field_subclassing_super_slots() -> None:
+    @attrs.define
+    class Page(ItemPage):
+        @field
+        def field1(self):
+            return 1
+
+    @attrs.define
+    class Page2(Page):
+        @field
+        def field1(self):
+            return super().field1 + 1
+
+    assert Page2().field1 == 2
+
+
 def test_field_subclassing_from_to_item() -> None:
     # to_item() should be the same since it was not overridden from the
     # subclass.
