@@ -236,7 +236,7 @@ def _build_forwarding_field(
 
     else:
 
-        def forwarded(self):
+        def forwarded(self):  # type: ignore[misc]
             layout = getattr(self, sync_helper_name)()
             target, attr_name = _resolve_field_target(self, layout)
             return getattr(target, attr_name)
