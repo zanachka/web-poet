@@ -33,10 +33,10 @@ from web_poet.serialization import (
 
 
 def _assert_pages_equal(p1, p2) -> None:
-    assert type(p1) == type(p2)  # noqa: E721
-    assert type(p1.response) == type(p2.response)  # noqa: E721
-    assert type(p1.response.body) == type(p2.response.body)  # noqa: E721
-    assert type(p1.response.headers) == type(p2.response.headers)  # noqa: E721
+    assert type(p1) == type(p2)
+    assert type(p1.response) == type(p2.response)
+    assert type(p1.response.body) == type(p2.response.body)
+    assert type(p1.response.headers) == type(p2.response.headers)
     assert p1.response.body == p2.response.body
     assert p1.response.status == p2.response.status
     assert p1.response.headers == p2.response.headers
@@ -45,7 +45,7 @@ def _assert_pages_equal(p1, p2) -> None:
 
 
 def _assert_urls_equal(u1: _Url, u2: _Url) -> None:
-    assert type(u1) == type(u2)  # noqa: E721
+    assert type(u1) == type(u2)
     assert str(u1) == str(u2)
 
 
@@ -271,7 +271,7 @@ def test_write_data(book_list_html_response, tmp_path) -> None:
     read_serialized_deps = storage.read()
     po = MyWebPage(book_list_html_response, url)
     deserialized_po = deserialize(MyWebPage, read_serialized_deps)
-    assert type(deserialized_po) == MyWebPage  # noqa: E721
+    assert type(deserialized_po) == MyWebPage
     _assert_pages_equal(po, deserialized_po)
 
 

@@ -163,7 +163,7 @@ class _FieldDescriptor(Generic[_PageT, _ReturnT]):
 
         else:
 
-            def processed(page):
+            def processed(page):  # type: ignore[misc]
                 if hasattr(page, "_validate_input"):
                     validation_item = page._validate_input()
                     if validation_item is not None:

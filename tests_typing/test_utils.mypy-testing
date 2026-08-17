@@ -11,7 +11,7 @@ def test_memoizemethod_noargs():
             return ''
 
     foo = Foo()
-    reveal_type(foo.meth())  # R: builtins.str
+    reveal_type(foo.meth())  # R: str
 
 
 @pytest.mark.mypy_testing
@@ -22,7 +22,7 @@ def test_cached_method_sync():
             return ''
 
     foo = Foo()
-    reveal_type(foo.meth())  # R: builtins.str
+    reveal_type(foo.meth())  # R: str
 
 
 @pytest.mark.mypy_testing
@@ -33,4 +33,4 @@ async def test_cached_method_async():
             return ''
 
     foo = Foo()
-    reveal_type(await foo.meth())  # R: builtins.str
+    reveal_type(await foo.meth())  # R: str

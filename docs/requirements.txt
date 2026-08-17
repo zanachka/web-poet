@@ -13,6 +13,7 @@ docutils==0.22.4
     #   sphinx
     #   sphinx-markdown-builder
     #   sphinx-rtd-theme
+    #   sphinx-scrapy
 idna==3.11
     # via requests
 imagesize==2.0.0
@@ -52,7 +53,7 @@ sphinx-markdown-builder @ git+https://github.com/zytedata/sphinx-markdown-builde
     # via sphinx-scrapy
 sphinx-rtd-theme==3.1.0
     # via -r requirements.in
-sphinx-scrapy @ git+https://github.com/scrapy/sphinx-scrapy.git@eef1f8c3ab3b74b6891752b8f4624373345bae26
+sphinx-scrapy @ git+https://github.com/scrapy/sphinx-scrapy.git@3581b4148e62f34f0a835cdd06eee5a6e0f5f843
     # via -r requirements.in
 sphinx-sitemap==2.9.0
     # via sphinx-scrapy

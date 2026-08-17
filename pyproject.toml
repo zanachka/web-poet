@@ -164,6 +164,8 @@ extend-select = [
     "YTT",
 ]
 ignore = [
+    # Do not catch blind exception
+    "BLE001",
     # Missing docstring in public module
     "D100",
     # Missing docstring in public class
@@ -190,6 +192,8 @@ ignore = [
     "D401",
     # First line should not be the function's "signature"
     "D402",
+    # `datetime.datetime()` called without a `tzinfo` argument
+    "DTZ001",
     # Too many return statements
     "PLR0911",
     # Too many branches
@@ -198,6 +202,8 @@ ignore = [
     "PLR0913",
     # Too many statements
     "PLR0915",
+    # Too many positional arguments
+    "PLR0917",
     # Magic value used in comparison
     "PLR2004",
     # Mutable class attributes should be annotated with `typing.ClassVar`
@@ -210,6 +216,8 @@ ignore = [
     # Add `from __future__ import annotations` to simplify
     # (The fix can break singledispatch() and/or andi.)
     "FA100",
+    # Create your own exception
+    "TRY002",
 ]
 
 [tool.ruff.lint.per-file-ignores]
@@ -220,6 +228,8 @@ ignore = [
 # D102: Missing docstring in public method
 # S: flake8-bandit
 # B018: Found useless expression.
+# FURB171: Membership test against single-item container, which some tests do
+# on purpose, e.g. to check hashing.
 "web_poet/__init__.py" = ["F401", "F403"]
 "web_poet/exceptions/__init__.py" = ["F401", "F403"]
 "web_poet/page_inputs/__init__.py" = ["F401", "F403"]
@@ -227,7 +237,7 @@ ignore = [
 "web_poet/testing/__init__.py" = ["F401", "F403"]
 "web_poet/testing/pytest.py" = ["D102"]
 "benchmarks/**" = ["B018", "D102", "S"]
-"tests/**" = ["B018", "D102", "S"]
+"tests/**" = ["B018", "D102", "FURB171", "S"]
 # Documentation examples may miss docstrings and include undefined, example
 # names.
 "docs/**" = ["D102", "F821"]

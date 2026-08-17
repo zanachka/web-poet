@@ -61,19 +61,19 @@ class Item:
 @pytest.mark.mypy_testing
 def test_field_type_no_params() -> None:
     page = TypedPage()
-    reveal_type(page.description)  # R: builtins.str
+    reveal_type(page.description)  # R: str
 
 
 @pytest.mark.mypy_testing
 def test_field_type() -> None:
     page = TypedPage()
-    reveal_type(page.currency)  # R: builtins.str
+    reveal_type(page.currency)  # R: str
 
 
 @pytest.mark.mypy_testing
 def test_field_type_out() -> None:
     page = TypedPage()
-    reveal_type(page.name)  # R: builtins.str
+    reveal_type(page.name)  # R: str
 
 
 @pytest.mark.mypy_testing
@@ -82,25 +82,25 @@ def test_field_type_out() -> None:
 )
 def test_field_type_changed_type() -> None:
     page = TypedPage()
-    reveal_type(page.price)  # R: builtins.str
+    reveal_type(page.price)  # R: str
 
 
 @pytest.mark.mypy_testing
 async def test_field_type_no_params_async() -> None:
     page = TypedPage()
-    reveal_type(await page.adescription)  # R: builtins.str
+    reveal_type(await page.adescription)  # R: str
 
 
 @pytest.mark.mypy_testing
 async def test_field_type_async() -> None:
     page = TypedPage()
-    reveal_type(await page.acurrency)  # R: builtins.str
+    reveal_type(await page.acurrency)  # R: str
 
 
 @pytest.mark.mypy_testing
 async def test_field_type_out_async() -> None:
     page = TypedPage()
-    reveal_type(await page.aname)  # R: builtins.str
+    reveal_type(await page.aname)  # R: str
 
 
 @pytest.mark.mypy_testing
@@ -109,14 +109,14 @@ async def test_field_type_out_async() -> None:
 )
 async def test_field_type_changed_type_async() -> None:
     page = TypedPage()
-    reveal_type(await page.aprice)  # R: builtins.str
+    reveal_type(await page.aprice)  # R: str
 
 
 @pytest.mark.mypy_testing
 async def test_item_from_fields() -> None:
     page = Page()
     item1 = await item_from_fields(page, item_cls=dict)
-    reveal_type(item1)  # R: builtins.dict[Any, Any]
+    reveal_type(item1)  # R: dict[Any, Any]
     item2 = await item_from_fields(page, item_cls=Item)
     reveal_type(item2)  # R: __main__.Item
 
@@ -125,7 +125,7 @@ async def test_item_from_fields() -> None:
 def test_item_from_fields_sync() -> None:
     page = Page()
     item1 = item_from_fields_sync(page, item_cls=dict)
-    reveal_type(item1)  # R: builtins.dict[Any, Any]
+    reveal_type(item1)  # R: dict[Any, Any]
     item2 = item_from_fields_sync(page, item_cls=Item)
     reveal_type(item2)  # R: __main__.Item
 
@@ -134,11 +134,11 @@ def test_item_from_fields_sync() -> None:
 async def test_item_from_fields_default_item_cls() -> None:
     page = Page()
     item1 = await item_from_fields(page)
-    reveal_type(item1)  # R: builtins.dict[builtins.str, Any]
+    reveal_type(item1)  # R: dict[str, Any]
 
 
 @pytest.mark.mypy_testing
 def test_item_from_fields_sync_default_item_cls() -> None:
     page = Page()
     item1 = item_from_fields_sync(page)
-    reveal_type(item1)  # R: builtins.dict[builtins.str, Any]
+    reveal_type(item1)  # R: dict[str, Any]
