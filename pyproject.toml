@@ -236,6 +236,7 @@ ignore = [
 "web_poet/serialization/__init__.py" = ["F401", "F403"]
 "web_poet/testing/__init__.py" = ["F401", "F403"]
 "web_poet/testing/pytest.py" = ["D102"]
+"benchmarks/**" = ["B018", "D102", "S"]
 "tests/**" = ["B018", "D102", "FURB171", "S"]
 # Documentation examples may miss docstrings and include undefined, example
 # names.
